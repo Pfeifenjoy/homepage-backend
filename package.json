@@ -7,8 +7,7 @@
     "build": "npm run clean && babel src --out-dir build",
     "start": "nodemon --exec npm run babel-node",
     "babel-node": "npx babel-node src/local-instance.js --source-maps",
-    "test": "npm run lint && npm run flow && npm run mocha",
-    "mocha": "mocha --require @babel/register --require @babel/polyfill --slow 30 --throw-deprecation --use_strict",
+    "test": "npm run lint && npm run flow",
     "clean": "rm -rf build",
     "flow": "npx flow",
     "lint": "npx eslint src",
@@ -31,7 +30,6 @@
     "eslint-plugin-flowtype": "^3.2.0",
     "flow-bin": "^0.89.0",
     "flow-copy-source": "^2.0.2",
-    "mocha": "^5.2.0",
     "nodemon": "^1.18.9"
   },
   "dependencies": {
