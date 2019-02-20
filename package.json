@@ -6,9 +6,9 @@
   "scripts": {
     "build": "npm run clean && babel src --out-dir build",
     "start": "nodemon --exec npm run babel-node",
-    "babel-node": "npx babel-node src/index.js --source-maps",
+    "babel-node": "npx babel-node src/local-instance.js --source-maps",
     "test": "npm run lint && npm run flow && npm run mocha",
-    "mocha": "mocha --require @babel/register --require babel-polyfill --slow 30 --throw-deprecation --use_strict",
+    "mocha": "mocha --require @babel/register --require @babel/polyfill --slow 30 --throw-deprecation --use_strict",
     "clean": "rm -rf build",
     "flow": "npx flow",
     "lint": "npx eslint src",
@@ -34,8 +34,10 @@
     "nodemon": "^1.18.9"
   },
   "dependencies": {
-    "@arwed/homepage-core": "0.0.12",
+    "@arwed/homepage-core": "^0.0.20",
     "@arwed/logging": "0.0.2",
-    "express": "^4.16.4"
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "http2": "^3.3.7"
   }
 }
