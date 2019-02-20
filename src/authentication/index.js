@@ -17,8 +17,7 @@ const authenticate = (core: Core) => async (req: $Request, res: $Response) => {
 			signed: true
 		}).send("authenticated")
 	} else {
-		res.status(400)
-			.send("unable to authenticate")
+		res.status(400).send("unable to authenticate")
 	}
 }
 
@@ -28,14 +27,12 @@ export const require_authentication = (core: Core) =>
 		if(await core.user.validate_token(token)) {
 			next()
 		} else {
-			res.status(401)
-				.send("Unauthorized")
+			res.status(401).send("Unauthorized")
 		}
 	}
 
-export const logout = (core: Core) => async (_req: $Request, res: $Response) => {
-	res.clearCookie("token")
-		.send("logged out")
+export const logout = (_: Core) => async (_req: $Request, res: $Response) => {
+	res.clearCookie("token").send("logged out")
 }
 
 export default async (core: Core) => {
